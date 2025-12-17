@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Navigation, Footer } from "@/components/layout";
 
 export const metadata: Metadata = {
   title: "상진수 | Server Developer & DevOps Engineer",
@@ -32,7 +33,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Navigation />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
