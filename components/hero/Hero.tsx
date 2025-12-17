@@ -30,7 +30,7 @@ export default function Hero({ className }: HeroProps) {
       <div className="flex flex-col items-center text-center md:items-start md:text-left">
         {/* 이름 - 미니멀 스타일 */}
         <motion.h1
-          className="cursor-default text-5xl font-bold text-text-primary md:text-6xl lg:text-7xl"
+          className="cursor-default font-mono text-5xl font-bold text-text-primary md:text-6xl lg:text-7xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -41,7 +41,7 @@ export default function Hero({ className }: HeroProps) {
 
         {/* 직업 */}
         <motion.p
-          className="mt-4 text-lg text-text-secondary md:text-xl"
+          className="mt-4 font-mono text-lg text-text-secondary md:text-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}

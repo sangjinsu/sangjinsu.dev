@@ -248,7 +248,7 @@ export default function Projects({ className }: ProjectsProps) {
                     <project.icon className="h-5 w-5 text-accent-blue" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-text-primary">
+                    <h3 className="font-semibold font-mono text-text-primary">
                       {project.title}
                     </h3>
                     <p className="text-xs text-text-secondary">
@@ -273,7 +273,7 @@ export default function Projects({ className }: ProjectsProps) {
                 {project.tech.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded bg-bg-secondary px-2 py-0.5 text-xs text-text-secondary"
+                    className="rounded bg-bg-secondary px-2 py-0.5 font-mono text-xs text-text-secondary"
                   >
                     {tag}
                   </span>
@@ -303,7 +303,7 @@ export default function Projects({ className }: ProjectsProps) {
                     <selectedProject.icon className="h-6 w-6 text-accent-blue" />
                   </div>
                   <div>
-                    <DialogTitle className="text-xl text-text-primary">
+                    <DialogTitle className="text-xl font-mono text-text-primary">
                       {selectedProject.title}
                     </DialogTitle>
                     <DialogDescription className="text-text-secondary">
@@ -403,7 +403,7 @@ export default function Projects({ className }: ProjectsProps) {
                     {selectedProject.tech.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-accent-blue/10 px-3 py-1 text-sm text-accent-blue"
+                        className="rounded-full bg-accent-blue/10 px-3 py-1 font-mono text-sm text-accent-blue"
                       >
                         {tag}
                       </span>

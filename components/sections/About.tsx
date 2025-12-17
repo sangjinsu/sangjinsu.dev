@@ -156,7 +156,7 @@ export default function About({ className }: AboutProps) {
               >
                 <div className="mb-2 flex items-center gap-2">
                   <item.icon className="h-4 w-4 text-accent-blue" />
-                  <span className="text-sm font-medium text-accent-blue">
+                  <span className="text-sm font-medium font-mono text-accent-blue">
                     {item.year}
                   </span>
                 </div>

@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @theme {
+  /* 폰트 패밀리 */
+  --font-mono: var(--font-mono), "Fira Code", ui-monospace, monospace;
+
   /* CORE 디자인 콘셉트 색상 */
   --color-bg-primary: #fafafa;
   --color-bg-secondary: #ffffff;

@@ -163,7 +163,7 @@ export default function Skills({ className }: SkillsProps) {
               }}
             >
               <div className="mb-2 flex items-center justify-between">
-                <span className="font-medium text-text-primary">
+                <span className="font-medium font-mono text-text-primary">
                   {skill.name}
                 </span>
                 <span

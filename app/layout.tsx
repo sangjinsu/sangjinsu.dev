@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
+import { Fira_Code } from "next/font/google";
 import "./globals.css";
 import { Navigation, Footer } from "@/components/layout";
+
+const firaCode = Fira_Code({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "상진수 | Server Developer & DevOps Engineer",
@@ -33,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="antialiased">
+      <body className={`${firaCode.variable} antialiased`}>
         <Navigation />
         {children}
         <Footer />
