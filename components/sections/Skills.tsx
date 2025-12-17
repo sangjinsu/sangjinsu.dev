@@ -108,6 +108,20 @@ const SKILL_CATEGORIES: SkillCategory[] = [
       },
     ],
   },
+  {
+    title: "AI & Tools",
+    color: "bg-orange-500",
+    skills: [
+      {
+        name: "Claude Code",
+        level: "advanced",
+        description: [
+          "AI 페어 프로그래밍으로 개발 생산성 향상",
+          "이 포트폴리오도 Claude Code로 제작",
+        ],
+      },
+    ],
+  },
 ];
 
 const LEVEL_STYLES = {
