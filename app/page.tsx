@@ -1,9 +1,9 @@
-import HeroMixed from "@/components/hero/HeroMixed";
+import { Hero } from "@/components/hero";
 
 export default function Home() {
   return (
     <main>
-      <HeroMixed />
+      <Hero />
     </main>
   );
 }
