@@ -26,7 +26,3 @@ bun --bun run build
 ## Deploy
 
 Vercel에 배포됨
-
-## License
-
-MIT
