@@ -12,6 +12,7 @@ interface HeroProps {
 const TERMINAL_COMMANDS = [
   { command: "whoami", output: "상진수" },
   { command: "cat job.txt", output: "Server Developer" },
+  { command: "fortune", output: '"일은 프로답게, 삶은 나답게" 🎯' },
   { command: 'grep -r "버그" ./production', output: "0 results found ⛵" },
 ];
 
