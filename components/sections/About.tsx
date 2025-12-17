@@ -141,7 +141,7 @@ export default function About({ className }: AboutProps) {
           transition={{ delay: 0.6 }}
         >
           <MapPin className="h-4 w-4" />
-          <span>부산 수영구 / 인천 남동구</span>
+          <span>인천 남동구 / 성남시 분당구</span>
         </motion.div>
       </div>
     </section>
