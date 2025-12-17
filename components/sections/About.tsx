@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, GraduationCap, Briefcase } from "lucide-react";
+import { MapPin, GraduationCap, Briefcase, Code, Plane, Mountain, PenLine } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface AboutProps {
@@ -34,11 +34,42 @@ const TIMELINE = [
     icon: GraduationCap,
   },
   {
-    year: "2022.04 - 2025.10",
-    title: "트리노드",
-    description: "포코팡타운 게임 서버 개발자 (서버 파트 리더)",
+    year: "2022.04 - 현재",
+    title: "포코팡 타운 서버 개발자",
+    description: "DAU 10만 규모 퍼즐 게임 서버 개발 및 라이브 운영",
     icon: Briefcase,
   },
+];
+
+const EXPERIENCES = [
+  {
+    icon: Code,
+    title: "개발 실험",
+    description: "다양한 개발 언어나 도구를 직접 사용해보며 구현과 개선의 재미를 느낍니다.",
+  },
+  {
+    icon: Plane,
+    title: "해외연수",
+    description: "우크라이나에서 1년간 어학연수와 IT 스타트업 인턴을 경험하며 글로벌 협업과 문화 적응력을 키웠습니다.",
+  },
+  {
+    icon: Mountain,
+    title: "클라이밍",
+    description: "클라이밍, 헬스, 러닝으로 체력과 집중력을 함께 관리합니다.",
+  },
+  {
+    icon: PenLine,
+    title: "기술 블로그",
+    description: "서버 구조 개선, 인프라 자동화 등 실무 기반 지식을 공유합니다.",
+  },
+];
+
+const HOW_I_WORK = [
+  "새로운 기술이나 도구를 직접 사용해보며 개선과 실험의 재미를 찾습니다.",
+  "서비스의 안정성과 운영 효율을 높이는 일이 가장 큰 동기부여가 됩니다.",
+  "문제가 발생해도 피하지 않고, 현실적인 대안을 찾아 실행하는 편입니다.",
+  "함께 정한 약속과 마감은 반드시 지키려고 노력합니다.",
+  "나의 성장이 팀과 서비스에 기여할 수 있도록 지속적으로 학습하고 공유합니다.",
 ];
 
 export default function About({ className }: AboutProps) {
@@ -82,10 +113,10 @@ export default function About({ className }: AboutProps) {
             낯선 땅에서 새로운 언어를 배우듯, 코드라는 언어를 배우는 것도
             즐거웠습니다.
             <br className="hidden md:block" />
-            지금은 <strong className="text-text-primary">DAU 10만 규모</strong>의
-            게임 서버를 운영하며,
+            <strong className="text-text-primary">DAU 10만 규모</strong>의
+            게임 서버를 운영했었으며,
             <br className="hidden md:block" />
-            &ldquo;버그의 바다&rdquo;를 항해하고 있습니다. 🏴‍☠️
+            지금도 &ldquo;버그의 바다&rdquo;를 항해하고 있습니다. 🏴‍☠️
           </p>
         </motion.div>
 
@@ -137,6 +168,60 @@ export default function About({ className }: AboutProps) {
             </motion.div>
           ))}
         </div>
+
+        {/* Experience */}
+        <motion.div
+          className="mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
+          <h3 className="mb-6 text-center text-xl font-semibold text-text-primary">
+            Experience
+          </h3>
+          <div className="grid gap-4 md:grid-cols-2">
+            {EXPERIENCES.map((exp, index) => (
+              <motion.div
+                key={exp.title}
+                className="rounded-lg bg-bg-primary p-4"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 * index, duration: 0.3 }}
+              >
+                <div className="mb-2 flex items-center gap-2">
+                  <exp.icon className="h-5 w-5 text-accent-blue" />
+                  <span className="font-medium text-text-primary">
+                    {exp.title}
+                  </span>
+                </div>
+                <p className="text-sm text-text-secondary">{exp.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* How I work */}
+        <motion.div
+          className="mt-12 rounded-lg bg-bg-primary p-6 md:p-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
+          <h3 className="mb-4 text-xl font-semibold text-text-primary">
+            How I work
+          </h3>
+          <ul className="space-y-3 text-text-secondary">
+            {HOW_I_WORK.map((item, index) => (
+              <li key={index} className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-blue" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
 
         {/* 현재 위치 */}
         <motion.div

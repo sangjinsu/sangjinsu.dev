@@ -13,114 +13,76 @@ interface Skill {
   description: string[];
 }
 
-interface SkillCategory {
-  title: string;
-  color: string;
-  skills: Skill[];
-}
-
-const SKILL_CATEGORIES: SkillCategory[] = [
+const SKILLS: Skill[] = [
   {
-    title: "Backend & Database",
-    color: "bg-blue-500",
-    skills: [
-      {
-        name: "Go (Golang)",
-        level: "expert",
-        description: [
-          "메인 서버 개발 언어로 3년 이상 실무 사용",
-          "실시간 게임 서버 구조 설계 및 개선",
-        ],
-      },
-      {
-        name: "MySQL",
-        level: "expert",
-        description: [
-          "안정성 중심 테이블 설계",
-          "카디널리티를 고려한 인덱스 구성",
-        ],
-      },
-      {
-        name: "Redis",
-        level: "advanced",
-        description: [
-          "랭킹 시스템 구현",
-          "캐싱 전략 수립 및 실시간 데이터 처리",
-        ],
-      },
-      {
-        name: "CouchBase",
-        level: "intermediate",
-        description: ["세션 데이터 저장 및 관리"],
-      },
-      {
-        name: "Node.js",
-        level: "intermediate",
-        description: ["운영툴 API 구성"],
-      },
+    name: "Go",
+    level: "expert",
+    description: [
+      "실시간 서버 개발 및 구조 개선",
+      "운영 시스템 이관 (Bash → Go)",
     ],
   },
   {
-    title: "Infrastructure & DevOps",
-    color: "bg-green-500",
-    skills: [
-      {
-        name: "Kubernetes & Docker",
-        level: "expert",
-        description: [
-          "AWS EKS 기반 개발, QA 환경 구성",
-          "클러스터 자원 최적화",
-        ],
-      },
-      {
-        name: "DevOps / CI-CD",
-        level: "advanced",
-        description: [
-          "Terraform, Helm, ArgoCD 기반 배포 자동화",
-          "Jenkins, GitHub Actions 파이프라인 구성",
-        ],
-      },
-      {
-        name: "AWS",
-        level: "advanced",
-        description: ["EKS, EC2, RDS, S3, CloudWatch"],
-      },
-      {
-        name: "Monitoring",
-        level: "advanced",
-        description: ["Grafana, Prometheus"],
-      },
+    name: "MySQL",
+    level: "expert",
+    description: [
+      "안정성 중심 테이블 설계",
+      "데이터 모델링, 제약 조건, 인덱스 구성",
     ],
   },
   {
-    title: "Frontend (운영툴)",
-    color: "bg-purple-500",
-    skills: [
-      {
-        name: "SvelteKit / Next.js",
-        level: "intermediate",
-        description: ["반응형 어드민 대시보드 개발"],
-      },
-      {
-        name: "TypeScript",
-        level: "advanced",
-        description: ["타입 안전한 프론트엔드 개발"],
-      },
+    name: "Redis",
+    level: "advanced",
+    description: [
+      "랭킹 시스템 구현",
+      "Pub/Sub 구조 설계 및 운영 적용",
     ],
   },
   {
-    title: "AI & Tools",
-    color: "bg-orange-500",
-    skills: [
-      {
-        name: "Claude Code",
-        level: "advanced",
-        description: [
-          "AI 페어 프로그래밍으로 개발 생산성 향상",
-          "이 포트폴리오도 Claude Code로 제작",
-        ],
-      },
+    name: "CouchBase",
+    level: "intermediate",
+    description: ["세션 데이터 저장 및 관리"],
+  },
+  {
+    name: "Server Architecture",
+    level: "advanced",
+    description: [
+      "콘텐츠 단위 모듈화",
+      "방어적 코드 설계로 서버 안정성 향상",
     ],
+  },
+  {
+    name: "DevOps / CI-CD",
+    level: "advanced",
+    description: ["Terraform, Helm, ArgoCD 기반 배포 자동화 및 클러스터 운영"],
+  },
+  {
+    name: "Docker / K8S",
+    level: "expert",
+    description: [
+      "AWS EKS 기반 개발, QA 환경 구성",
+      "클러스터 자원 최적화",
+    ],
+  },
+  {
+    name: "Node.js / Express / Next.js",
+    level: "intermediate",
+    description: ["운영툴 API 및 프론트엔드 구성"],
+  },
+  {
+    name: "Terraform / Helm / ArgoCD / Argo Workflow",
+    level: "advanced",
+    description: ["클라우드 인프라 자동화 및 배포 시스템 구성"],
+  },
+  {
+    name: "Github Actions / Jenkins",
+    level: "advanced",
+    description: ["서버 자동 빌드 및 테스트 환경 구성"],
+  },
+  {
+    name: "Headlamp / Goldilocks",
+    level: "intermediate",
+    description: ["EKS 리소스 시각화 및 최적화 도구"],
   },
 ];
 
@@ -186,65 +148,44 @@ export default function Skills({ className }: SkillsProps) {
           </div>
         </motion.div>
 
-        {/* 스킬 카테고리 */}
-        <div className="space-y-12">
-          {SKILL_CATEGORIES.map((category, categoryIndex) => (
+        {/* Skills */}
+        <div className="grid gap-4 md:grid-cols-2">
+          {SKILLS.map((skill, index) => (
             <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={skill.name}
+              className="rounded-lg bg-bg-secondary p-4"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 * categoryIndex, duration: 0.5 }}
+              transition={{
+                delay: 0.05 * index,
+                duration: 0.3,
+              }}
             >
-              {/* 카테고리 제목 */}
-              <div className="mb-6 flex items-center gap-3">
-                <div className={cn("h-3 w-3 rounded-full", category.color)} />
-                <h3 className="text-lg font-semibold text-text-primary">
-                  {category.title}
-                </h3>
+              <div className="mb-2 flex items-center justify-between">
+                <span className="font-medium text-text-primary">
+                  {skill.name}
+                </span>
+                <span
+                  className={cn(
+                    "rounded-full px-2 py-0.5 text-xs font-medium",
+                    LEVEL_STYLES[skill.level]
+                  )}
+                >
+                  {LEVEL_LABELS[skill.level]}
+                </span>
               </div>
-
-              {/* 스킬 카드 */}
-              <div className="grid gap-4 md:grid-cols-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skill.name}
-                    className="rounded-lg bg-bg-secondary p-4"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      delay: 0.1 * categoryIndex + 0.05 * skillIndex,
-                      duration: 0.3,
-                    }}
+              <ul className="space-y-1">
+                {skill.description.map((desc, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-2 text-sm text-text-secondary"
                   >
-                    <div className="mb-2 flex items-center justify-between">
-                      <span className="font-medium text-text-primary">
-                        {skill.name}
-                      </span>
-                      <span
-                        className={cn(
-                          "rounded-full px-2 py-0.5 text-xs font-medium",
-                          LEVEL_STYLES[skill.level]
-                        )}
-                      >
-                        {LEVEL_LABELS[skill.level]}
-                      </span>
-                    </div>
-                    <ul className="space-y-1">
-                      {skill.description.map((desc, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-2 text-sm text-text-secondary"
-                        >
-                          <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-text-secondary/40" />
-                          {desc}
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
+                    <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-text-secondary/40" />
+                    {desc}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </motion.div>
           ))}
         </div>
