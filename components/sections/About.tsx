@@ -10,6 +10,12 @@ interface AboutProps {
 
 const TIMELINE = [
   {
+    year: "2014 - 2021",
+    title: "한국외대 글로벌캠퍼스",
+    description: "우크라이나어과 / 융복합소프트웨어 복수전공",
+    icon: GraduationCap,
+  },
+  {
     year: "2018",
     title: "우크라이나 어학연수",
     description: "르비우 국립대학교에서 우크라이나어 전공",
@@ -22,15 +28,15 @@ const TIMELINE = [
     icon: Briefcase,
   },
   {
-    year: "2022.04",
+    year: "2021.07 - 2022.04",
     title: "SSAFY 6기 수료",
     description: "삼성 청년 SW 아카데미에서 본격적인 개발 교육",
     icon: GraduationCap,
   },
   {
-    year: "2022.04",
-    title: "트리노드 입사",
-    description: "포코팡타운 게임 서버 개발자로 커리어 시작",
+    year: "2022.04 - 2025.10",
+    title: "트리노드",
+    description: "포코팡타운 게임 서버 개발자 (서버 파트 리더)",
     icon: Briefcase,
   },
 ];
