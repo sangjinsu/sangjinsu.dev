@@ -5,7 +5,7 @@ import { Anchor, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-interface HeroMixedProps {
+interface HeroProps {
   className?: string;
 }
 
@@ -15,7 +15,7 @@ const TERMINAL_COMMANDS = [
   { command: 'grep -r "버그" ./production', output: "0 results found ⛵" },
 ];
 
-export default function HeroMixed({ className }: HeroMixedProps) {
+export default function Hero({ className }: HeroProps) {
   return (
     <section
       className={cn(
