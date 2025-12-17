@@ -12,7 +12,7 @@ const TIMELINE = [
   {
     year: "2018",
     title: "우크라이나 어학연수",
-    description: "키예프 국립대학교에서 우크라이나어 전공",
+    description: "르비우 국립대학교에서 우크라이나어 전공",
     icon: GraduationCap,
   },
   {
@@ -22,15 +22,15 @@ const TIMELINE = [
     icon: Briefcase,
   },
   {
-    year: "2021",
+    year: "2022.04",
     title: "SSAFY 6기 수료",
     description: "삼성 청년 SW 아카데미에서 본격적인 개발 교육",
     icon: GraduationCap,
   },
   {
-    year: "2022",
+    year: "2022.04",
     title: "트리노드 입사",
-    description: "게임 서버 개발자로 커리어 시작",
+    description: "포코팡타운 게임 서버 개발자로 커리어 시작",
     icon: Briefcase,
   },
 ];
