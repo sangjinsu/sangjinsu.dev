@@ -16,7 +16,16 @@ interface AboutProps {
   className?: string;
 }
 
-const TIMELINE = [
+interface TimelineItem {
+  year: string;
+  title: string;
+  company?: string;
+  companyUrl?: string;
+  description: string;
+  icon: React.ElementType;
+}
+
+const TIMELINE: TimelineItem[] = [
   {
     year: "2014 - 2021",
     title: "한국외대 글로벌캠퍼스",
@@ -44,6 +53,8 @@ const TIMELINE = [
   {
     year: "2022.04 - 2025.10",
     title: "포코팡 타운 서버 개발자",
+    company: "트리노드",
+    companyUrl: "https://www.treenod.com/pokopangtown",
     description: "DAU 10만 규모 퍼즐 게임 서버 개발 및 라이브 운영",
     icon: Briefcase,
   },
@@ -178,6 +189,23 @@ export default function About({ className }: AboutProps) {
                   </span>
                 </div>
                 <h3 className="font-semibold text-text-primary">
+                  {item.company && (
+                    <>
+                      {item.companyUrl ? (
+                        <a
+                          href={item.companyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-accent-blue hover:underline"
+                        >
+                          {item.company}
+                        </a>
+                      ) : (
+                        <span>{item.company}</span>
+                      )}
+                      {", "}
+                    </>
+                  )}
                   {item.title}
                 </h3>
                 <p className="mt-1 text-sm text-text-secondary">
