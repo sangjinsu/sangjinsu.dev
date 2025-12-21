@@ -1,6 +1,12 @@
 "use client";
 
 import { Github, Linkedin, BookOpen } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const SOCIAL_LINKS = [
   {
@@ -31,18 +37,25 @@ export default function Footer() {
 
         {/* 소셜 링크 */}
         <div className="flex items-center gap-4">
-          {SOCIAL_LINKS.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-text-secondary transition-colors hover:text-text-primary"
-              aria-label={link.name}
-            >
-              <link.icon className="h-4 w-4" />
-            </a>
-          ))}
+          <TooltipProvider>
+            {SOCIAL_LINKS.map((link) => (
+              <Tooltip key={link.name}>
+                <TooltipTrigger asChild>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-text-secondary transition-colors hover:text-text-primary"
+                  >
+                    <link.icon className="h-4 w-4" />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{link.name}</p>
+                </TooltipContent>
+              </Tooltip>
+            ))}
+          </TooltipProvider>
         </div>
       </div>
     </footer>

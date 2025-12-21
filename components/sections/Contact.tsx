@@ -3,6 +3,12 @@
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 interface ContactProps {
@@ -82,17 +88,25 @@ export default function Contact({ className }: ContactProps) {
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          {SOCIAL_LINKS.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex h-12 w-12 items-center justify-center rounded-full bg-bg-secondary transition-colors hover:bg-accent-blue/10"
-            >
-              <link.icon className="h-5 w-5 text-text-secondary transition-colors group-hover:text-accent-blue" />
-            </a>
-          ))}
+          <TooltipProvider>
+            {SOCIAL_LINKS.map((link) => (
+              <Tooltip key={link.name}>
+                <TooltipTrigger asChild>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex h-12 w-12 items-center justify-center rounded-full bg-bg-secondary transition-colors hover:bg-accent-blue/10"
+                  >
+                    <link.icon className="h-5 w-5 text-text-secondary transition-colors group-hover:text-accent-blue" />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{link.name}</p>
+                </TooltipContent>
+              </Tooltip>
+            ))}
+          </TooltipProvider>
         </motion.div>
 
         {/* 위트 카피 */}
