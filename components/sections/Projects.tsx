@@ -225,7 +225,7 @@ export default function Projects({ className }: ProjectsProps) {
             Projects
           </h2>
           <p className="mt-4 text-text-secondary">
-            실제 서비스에서 경험한 프로젝트들
+            실제 서비스에서 경험한 프로젝트
           </p>
         </motion.div>
 
@@ -241,26 +241,26 @@ export default function Projects({ className }: ProjectsProps) {
               transition={{ delay: 0.1 * index, duration: 0.5 }}
               onClick={() => setSelectedProject(project)}
             >
-              {/* 헤더 */}
-              <div className="mb-4 flex items-start justify-between">
-                <div className="flex min-w-0 flex-1 items-center gap-3">
-                  <div className="flex-shrink-0 rounded-lg bg-accent-blue/10 p-2">
-                    <project.icon className="h-5 w-5 text-accent-blue" />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="truncate font-semibold font-mono text-text-primary">
-                      {project.title}
-                    </h3>
-                    <p className="text-xs text-text-secondary">
-                      {project.period}
-                    </p>
-                  </div>
+              {/* 아이콘 + 배지 */}
+              <div className="mb-3 flex items-center justify-between">
+                <div className="rounded-lg bg-accent-blue/10 p-2">
+                  <project.icon className="h-5 w-5 text-accent-blue" />
                 </div>
                 {project.resultBadge && (
-                  <span className="flex-shrink-0 whitespace-nowrap rounded-full bg-green-500/10 px-2 py-1 text-xs font-medium text-green-600">
+                  <span className="rounded-full bg-green-500/10 px-2 py-1 text-xs font-medium text-green-600">
                     {project.resultBadge}
                   </span>
                 )}
+              </div>
+
+              {/* 타이틀 + 기간 */}
+              <div className="mb-4">
+                <h3 className="font-semibold font-mono text-text-primary">
+                  {project.title}
+                </h3>
+                <p className="text-xs text-text-secondary">
+                  {project.period}
+                </p>
               </div>
 
               {/* 요약 */}
