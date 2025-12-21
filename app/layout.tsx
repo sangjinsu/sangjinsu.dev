@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 import "./globals.css";
 import { Navigation, Footer } from "@/components/layout";
+import ScrollToTop from "@/components/ui/scroll-to-top";
 
 const firaCode = Fira_Code({
   subsets: ["latin"],
@@ -44,6 +45,7 @@ export default function RootLayout({
         <Navigation />
         {children}
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );
