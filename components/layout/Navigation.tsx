@@ -2,8 +2,26 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Github, Linkedin, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+const SOCIAL_LINKS = [
+  {
+    name: "Blog",
+    href: "https://velog.io/@sangjinsu/posts",
+    icon: BookOpen,
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/sangjinsu",
+    icon: Github,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/sangjinsu/",
+    icon: Linkedin,
+  },
+];
 
 const NAV_ITEMS = [
   { name: "About", href: "#about" },
@@ -59,22 +77,43 @@ export default function Navigation() {
         </a>
 
         {/* 데스크탑 네비게이션 */}
-        <ul className="hidden items-center gap-8 md:flex">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.name}>
+        <div className="hidden items-center gap-8 md:flex">
+          <ul className="flex items-center gap-8">
+            {NAV_ITEMS.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  className="text-sm text-text-secondary transition-colors hover:text-text-primary"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.href);
+                  }}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* 구분선 */}
+          <div className="h-4 w-px bg-border" />
+
+          {/* 소셜 링크 */}
+          <div className="flex items-center gap-1">
+            {SOCIAL_LINKS.map((link) => (
               <a
-                href={item.href}
-                className="text-sm text-text-secondary transition-colors hover:text-text-primary"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.href);
-                }}
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm text-text-secondary transition-colors hover:bg-bg-secondary hover:text-text-primary"
               >
-                {item.name}
+                <link.icon className="h-4 w-4" />
+                <span>{link.name}</span>
               </a>
-            </li>
-          ))}
-        </ul>
+            ))}
+          </div>
+        </div>
 
         {/* 모바일 메뉴 버튼 */}
         <button
@@ -114,6 +153,25 @@ export default function Navigation() {
               </li>
             ))}
           </ul>
+
+          {/* 모바일 소셜 링크 */}
+          <div className="border-t border-bg-secondary px-4 py-4">
+            <div className="flex items-center gap-4">
+              {SOCIAL_LINKS.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-text-secondary transition-colors hover:text-text-primary"
+                  aria-label={link.name}
+                >
+                  <link.icon className="h-5 w-5" />
+                  <span className="text-sm">{link.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
         </motion.div>
       )}
     </motion.nav>
