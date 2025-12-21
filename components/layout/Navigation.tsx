@@ -73,7 +73,7 @@ export default function Navigation() {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          상진수
+          sangjinsu.dev
         </a>
 
         {/* 데스크탑 네비게이션 */}
