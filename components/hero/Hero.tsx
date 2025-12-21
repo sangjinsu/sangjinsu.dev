@@ -3,6 +3,12 @@
 import { motion } from "framer-motion";
 import { Anchor, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 interface HeroProps {
@@ -83,14 +89,48 @@ export default function Hero({ className }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.2, duration: 0.6 }}
         >
-          <Button size="lg" className="gap-2">
-            <Anchor className="h-4 w-4" />
-            프로젝트 보기
-          </Button>
-          <Button variant="outline" size="lg" className="gap-2">
-            <Mail className="h-4 w-4" />
-            연락하기
-          </Button>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  size="lg"
+                  className="gap-2"
+                  onClick={() => {
+                    document
+                      .querySelector("#projects")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  <Anchor className="h-4 w-4" />
+                  프로젝트 보기
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>포트폴리오 프로젝트 확인하기</p>
+              </TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="gap-2"
+                  onClick={() => {
+                    document
+                      .querySelector("#contact")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  <Mail className="h-4 w-4" />
+                  연락하기
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>이메일로 연락하기</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </motion.div>
       </div>
 
