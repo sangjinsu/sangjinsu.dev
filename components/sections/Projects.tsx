@@ -243,12 +243,12 @@ export default function Projects({ className }: ProjectsProps) {
             >
               {/* 헤더 */}
               <div className="mb-4 flex items-start justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="rounded-lg bg-accent-blue/10 p-2">
+                <div className="flex min-w-0 flex-1 items-center gap-3">
+                  <div className="flex-shrink-0 rounded-lg bg-accent-blue/10 p-2">
                     <project.icon className="h-5 w-5 text-accent-blue" />
                   </div>
-                  <div>
-                    <h3 className="font-semibold font-mono text-text-primary">
+                  <div className="min-w-0">
+                    <h3 className="truncate font-semibold font-mono text-text-primary">
                       {project.title}
                     </h3>
                     <p className="text-xs text-text-secondary">
@@ -257,7 +257,7 @@ export default function Projects({ className }: ProjectsProps) {
                   </div>
                 </div>
                 {project.resultBadge && (
-                  <span className="rounded-full bg-green-500/10 px-2 py-1 text-xs font-medium text-green-600">
+                  <span className="flex-shrink-0 whitespace-nowrap rounded-full bg-green-500/10 px-2 py-1 text-xs font-medium text-green-600">
                     {project.resultBadge}
                   </span>
                 )}
